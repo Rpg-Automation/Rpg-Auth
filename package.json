@@ -4,7 +4,8 @@
   "description": "OAuth2 API",
   "main": "build/index.js",
   "scripts": {
-    "prebuild": "eslint --fix --ext .ts,.tsx .",
+    "lint": "eslint --fix --ext .ts,.tsx .",
+	"devbuild": "npm run lint && npm run postinstall",
     "postinstall": "npm run build",
     "build": "tsc",
     "prestart": "npm run build",
