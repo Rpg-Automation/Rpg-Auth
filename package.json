@@ -17,6 +17,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "eslint-config-standard": "^16.0.2",
     "express": "^4.17.1",
     "helmet": "^4.4.1",
     "passport": "^0.4.1",
