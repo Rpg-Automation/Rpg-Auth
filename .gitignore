@@ -92,4 +92,4 @@ packages/
 /prod.env
 /debug.env
 
-build/
+build/**/*
