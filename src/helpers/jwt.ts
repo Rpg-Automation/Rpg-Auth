@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
-import config from "./Config";
-import { IJwtPayload } from "../Types/Jwt";
+import config from "./config";
+import { IJwtPayload } from "../types/jwt";
 
 export default class Jwt {
 
