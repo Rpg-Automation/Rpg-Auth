@@ -91,3 +91,5 @@ _ReSharper*/
 packages/
 /prod.env
 /debug.env
+
+build/

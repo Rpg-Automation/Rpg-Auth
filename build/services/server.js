@@ -18,7 +18,11 @@ const helmet_1 = __importDefault(require("helmet"));
 const controllers_1 = __importDefault(require("../controllers"));
 const errorHandlers_1 = __importDefault(require("../middleware/errorHandlers"));
 const app = express_1.default();
-app.use(cors_1.default());
+app.use(cors_1.default({
+    origin: "http://172.25.128.1:3000",
+    credentials: true,
+    allowedHeaders: "*"
+}));
 app.use(helmet_1.default());
 app.use(express_1.default.json());
 app.use("/api", controllers_1.default);

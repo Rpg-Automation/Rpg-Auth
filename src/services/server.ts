@@ -4,10 +4,15 @@ import helmet from "helmet";
 
 import router from "../controllers";
 import errorHandler from "../middleware/errorHandlers";
+import config from "../helpers/config";
 
 const app: Express = express();
 
-app.use(cors());
+app.use(cors({
+	origin: config.DASHBOARD_ORIGIN,
+	credentials: true,
+	allowedHeaders: "*"
+}));
 app.use(helmet());
 app.use(express.json());
 
