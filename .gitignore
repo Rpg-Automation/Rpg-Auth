@@ -93,3 +93,4 @@ packages/
 /debug.env
 
 build/**/*
+build/*

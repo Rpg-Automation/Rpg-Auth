@@ -1,20 +1,23 @@
 import express, { Request, Response, Express } from "express";
 import cors from "cors";
 import helmet from "helmet";
+import cookieParser from "cookie-parser";
 
 import router from "../controllers";
 import errorHandler from "../middleware/errorHandlers";
 import config from "../helpers/config";
 
 const app: Express = express();
-
 app.use(cors({
+	allowedHeaders: "*",
 	origin: config.DASHBOARD_ORIGIN,
 	credentials: true,
-	allowedHeaders: "*"
+	preflightContinue: false
 }));
 app.use(helmet());
+app.use(cookieParser(config.COOKIE_SECRET));
 app.use(express.json());
+app.use(express.urlencoded());
 
 app.use("/api", router);
 
