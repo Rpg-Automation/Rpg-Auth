@@ -16,6 +16,7 @@ app.use(cors({
 	preflightContinue: false
 }));
 app.enable("trust proxy");
+app.set("trust proxy", 1);
 app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", config.DASHBOARD_ORIGIN);
 	res.header("Access-Control-Allow-Credentials", "true");
