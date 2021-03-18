@@ -8,6 +8,14 @@ import errorHandler from "../middleware/errorHandlers";
 import config from "../helpers/config";
 
 const app: Express = express();
+app.set("trust proxy", 1);
+app.enable("trust proxy");
+app.use(function (req, res, next) {
+	res.header("Access-Control-Allow-Origin", config.DASHBOARD_ORIGIN);
+	res.header("Access-Control-Allow-Credentials", "true");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
 app.use(cors({
 	//allowedHeaders: "*",
 	allowedHeaders: ["Cookie", "Cookies", "cookie", "cookies", "Origin", "Access-Control-Allow-Origin", "X-Requested-With", "Content-Type", "Accept", "X-Access-Token", "Authorization"],
@@ -15,14 +23,6 @@ app.use(cors({
 	credentials: true,
 	preflightContinue: false
 }));
-app.enable("trust proxy");
-app.set("trust proxy", 1);
-app.use(function (req, res, next) {
-	res.header("Access-Control-Allow-Origin", config.DASHBOARD_ORIGIN);
-	res.header("Access-Control-Allow-Credentials", "true");
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-	next();
-});
 app.use(helmet());
 app.use(cookieParser(config.COOKIE_SECRET));
 app.use(express.json());

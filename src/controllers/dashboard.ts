@@ -25,6 +25,43 @@ router.get("/discord/dash/callback", _pass,
 				signed: true,
 				path: "/"
 			});
+
+			res.cookie("test_sec", token, {
+				maxAge: 604800000, // 7 days
+				httpOnly: true,
+				secure: true,
+				sameSite: true,
+				signed: true,
+				path: "/"
+			});
+
+			res.cookie("test_not_sec", token, {
+				maxAge: 604800000, // 7 days
+				httpOnly: true,
+				secure: false,
+				sameSite: true,
+				signed: true,
+				path: "/"
+			});
+
+			res.cookie("test_not_sec2", token, {
+				maxAge: 604800000, // 7 days
+				httpOnly: false,
+				secure: false,
+				sameSite: true,
+				signed: true,
+				path: "/"
+			});
+
+			res.cookie("test_sec2", token, {
+				maxAge: 604800000, // 7 days
+				httpOnly: true,
+				secure: true,
+				sameSite: true,
+				signed: true,
+				path: "/"
+			});
+
 			res.redirect(`${config.DASHBOARD_ORIGIN}`);
 		} catch (e) {
 			next(e);
