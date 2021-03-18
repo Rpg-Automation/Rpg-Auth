@@ -27,6 +27,8 @@ app.use(helmet());
 app.use(cookieParser(config.COOKIE_SECRET));
 app.use(express.json());
 app.use(express.urlencoded());
+app.set("trust proxy", 1);
+app.enable("trust proxy");
 
 app.use("/api", router);
 
