@@ -21,7 +21,7 @@ router.get("/discord/dash/callback", _pass,
 				maxAge: 604800000, // 7 days
 				httpOnly: true,
 				secure: config.IS_PROD,
-				sameSite: false,
+				sameSite: true,
 				signed: true,
 				path: "/"
 			});

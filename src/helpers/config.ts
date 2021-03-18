@@ -20,7 +20,7 @@ const config = {
 	NODE_ENV: <Environment>env,
 	PORT: <number>parseInt(process.env.PORT) || 3000,
 	CLIENT_ID: <string>process.env.CLIENT_ID || undefined,
-	IS_PROD: <boolean>(process.env.NODE_ENV == "development" ? true : false),
+	IS_PROD: <boolean>(env == Environment.prod ? true : false),
 	JWT_SECRET: <string>process.env.JWT_SECRET || undefined,
 	JWT_EXPIRATION: <string | number>(60 * 1 * 60 * 24 * 7),
 	CLIENT_SECRET: <string>process.env.CLIENT_SECRET || undefined,
