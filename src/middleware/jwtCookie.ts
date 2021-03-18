@@ -5,6 +5,7 @@ const authenticateToken: RequestHandler =
 	async (req: Request, res: Response, next: NextFunction): Promise<void | Response> => {
 		try {
 			const token = req.signedCookies.token;
+			console.log(req);
 
 			if (token == null) {
 				res.locals.jwt = null;
