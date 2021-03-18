@@ -8,7 +8,7 @@ const authenticateToken: RequestHandler =
 
 			if (token == null) {
 				res.locals.jwt = null;
-				throw "invalid jwt";
+				throw "missing jwt";
 			}
 
 			const payload = await Jwt.Verify(token);
