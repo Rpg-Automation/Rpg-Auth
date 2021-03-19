@@ -21,7 +21,7 @@ router.get("/discord/dash/callback", _pass,
 				maxAge: 604800000, // 7 days
 				httpOnly: true,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				sameSite: "none",
+				sameSite: config.IS_PROD ? "none" : true,
 				signed: true,
 				path: "/"
 			});
@@ -53,7 +53,7 @@ router.post("/logout",
 				maxAge: 0, // delete instantly
 				httpOnly: true,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				sameSite: "none",
+				sameSite: config.IS_PROD ? "none" : true,
 				signed: true,
 				path: "/"
 			});
