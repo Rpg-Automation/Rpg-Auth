@@ -24,7 +24,7 @@ router.get("/discord/dash/callback", _pass,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
 				sameSite: false,
 				signed: true,
-				//domain: "rpg-dash.herokuapp.com",
+				domain: "herokuapp.com",
 				path: "/"
 			});
 
@@ -35,7 +35,7 @@ router.get("/discord/dash/callback", _pass,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
 				sameSite: false,
 				signed: true,
-				//domain: "rpg-dash.herokuapp.com",
+				domain: "herokuapp.com",
 				path: "/"
 			});
 
@@ -46,7 +46,7 @@ router.get("/discord/dash/callback", _pass,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
 				sameSite: false,
 				signed: true,
-				//domain: "rpg-dash.herokuapp.com",
+				domain: "herokuapp.com",
 				path: "/"
 			});
 
@@ -57,7 +57,7 @@ router.get("/discord/dash/callback", _pass,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
 				sameSite: false,
 				signed: true,
-				//domain: "rpg-dash.herokuapp.com",
+				domain: "herokuapp.com",
 				path: "/"
 			});
 
@@ -68,7 +68,7 @@ router.get("/discord/dash/callback", _pass,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
 				sameSite: false,
 				signed: true,
-				//domain: "rpg-dash.herokuapp.com",
+				domain: "herokuapp.com",
 				path: "/"
 			});
 
