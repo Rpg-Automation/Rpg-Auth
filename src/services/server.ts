@@ -14,7 +14,7 @@ app.use(cors({
 	origin: config.DASHBOARD_ORIGIN,
 	credentials: true,
 	preflightContinue: false,
-	exposedHeaders: ["Authorization"]
+	exposedHeaders: ["Authorization", "set-cookie", "Set-Cookie"]
 }));
 app.use(helmet());
 app.use(cookieParser(config.COOKIE_SECRET));
