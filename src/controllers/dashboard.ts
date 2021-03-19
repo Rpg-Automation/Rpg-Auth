@@ -23,7 +23,7 @@ router.get("/discord/dash/callback", _pass,
 				secure: config.IS_PROD,
 				sameSite: true,
 				signed: true,
-				domain: "https://rpg-dash.herokuapp.com",
+				domain: "rpg-dash.herokuapp.com",
 				path: "/"
 			});
 
@@ -33,7 +33,7 @@ router.get("/discord/dash/callback", _pass,
 				secure: true,
 				sameSite: true,
 				signed: true,
-				domain: "https://rpg-dash.herokuapp.com",
+				domain: "rpg-dash.herokuapp.com",
 				path: "/"
 			});
 
@@ -43,7 +43,7 @@ router.get("/discord/dash/callback", _pass,
 				secure: false,
 				sameSite: true,
 				signed: true,
-				domain: "https://rpg-dash.herokuapp.com",
+				domain: "rpg-dash.herokuapp.com",
 				path: "/"
 			});
 
@@ -53,7 +53,7 @@ router.get("/discord/dash/callback", _pass,
 				secure: false,
 				sameSite: true,
 				signed: true,
-				domain: "https://rpg-dash.herokuapp.com",
+				domain: "rpg-dash.herokuapp.com",
 				path: "/"
 			});
 
@@ -63,7 +63,7 @@ router.get("/discord/dash/callback", _pass,
 				secure: true,
 				sameSite: true,
 				signed: true,
-				domain: "https://rpg-dash.herokuapp.com",
+				domain: "rpg-dash.herokuapp.com",
 				path: "/"
 			});
 
