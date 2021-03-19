@@ -47,6 +47,17 @@ router.get("/discord/dash/callback", _pass,
 				path: "/"
 			});
 
+			res.cookie("test3", token, {
+				maxAge: 604800000, // 7 days
+				httpOnly: true,
+				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
+				//sameSite: config.IS_PROD ? "none" : true,
+				sameSite: true,
+				signed: true,
+				domain: config.DASHBOARD_ORIGIN,
+				path: "/"
+			});
+
 			res.redirect(`${config.DASHBOARD_ORIGIN}`);
 		} catch (e) {
 			next(e);
