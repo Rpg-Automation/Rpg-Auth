@@ -22,9 +22,10 @@ router.get("/discord/dash/callback", _pass,
 				httpOnly: true,
 				//secure: config.IS_PROD,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				sameSite: false,
+				//sameSite: false,
+				sameSite: "none",
 				signed: true,
-				domain: "herokuapp.com",
+				//domain: "herokuapp.com",
 				path: "/"
 			});
 
@@ -33,9 +34,10 @@ router.get("/discord/dash/callback", _pass,
 				httpOnly: true,
 				//secure: true,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				sameSite: false,
+				//sameSite: false,
+				sameSite: "none",
 				signed: true,
-				domain: "herokuapp.com",
+				//domain: "herokuapp.com",
 				path: "/"
 			});
 
@@ -44,9 +46,10 @@ router.get("/discord/dash/callback", _pass,
 				httpOnly: true,
 				//secure: false,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				sameSite: false,
+				//sameSite: false,
+				sameSite: "none",
 				signed: true,
-				domain: "herokuapp.com",
+				//domain: "herokuapp.com",
 				path: "/"
 			});
 
@@ -55,9 +58,10 @@ router.get("/discord/dash/callback", _pass,
 				httpOnly: false,
 				//secure: false,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				sameSite: false,
+				//sameSite: false,
+				sameSite: "none",
 				signed: true,
-				domain: "herokuapp.com",
+				//domain: "herokuapp.com",
 				path: "/"
 			});
 
@@ -66,9 +70,10 @@ router.get("/discord/dash/callback", _pass,
 				httpOnly: true,
 				//secure: true,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				sameSite: false,
+				//sameSite: false,
+				sameSite: "none",
 				signed: true,
-				domain: "herokuapp.com",
+				//domain: "herokuapp.com",
 				path: "/"
 			});
 
