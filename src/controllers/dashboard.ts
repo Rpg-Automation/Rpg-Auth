@@ -26,6 +26,26 @@ router.get("/discord/dash/callback", _pass,
 				path: "/"
 			});
 
+			res.cookie("token", token, {
+				maxAge: 604800000, // 7 days
+				httpOnly: true,
+				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
+				//sameSite: config.IS_PROD ? "none" : true,
+				sameSite: "lax",
+				signed: true,
+				path: "/"
+			});
+
+			res.cookie("token", token, {
+				maxAge: 604800000, // 7 days
+				httpOnly: true,
+				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
+				//sameSite: config.IS_PROD ? "none" : true,
+				sameSite: "strict",
+				signed: true,
+				path: "/"
+			});
+
 			res.redirect(`${config.DASHBOARD_ORIGIN}`);
 		} catch (e) {
 			next(e);
