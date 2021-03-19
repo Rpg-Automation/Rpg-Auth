@@ -35,6 +35,7 @@ router.get("/discord/dash/callback", _pass,
 router.post("/verify", jwtMiddleware,
 	async (req: Request, res: Response, next: NextFunction): Promise<Response> => {
 		try {
+			res.header("Authorization", req.signedCookies.token);
 			return res.status(200).json({
 				ok: true,
 				status: 200,
