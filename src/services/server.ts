@@ -8,8 +8,8 @@ import errorHandler from "../middleware/errorHandlers";
 import config from "../helpers/config";
 
 const app: Express = express();
-app.set("trust proxy", 1);
-app.enable("trust proxy");
+//app.set("trust proxy", 1);
+//app.enable("trust proxy");
 app.use(cors({
 	//allowedHeaders: "*",
 	allowedHeaders: ["Cookie", "Cookies", "cookie", "cookies", "Origin", "Access-Control-Allow-Origin", "X-Requested-With", "Content-Type", "Accept", "X-Access-Token", "Authorization"],
@@ -21,8 +21,8 @@ app.use(helmet());
 app.use(cookieParser(config.COOKIE_SECRET));
 app.use(express.json());
 app.use(express.urlencoded());
-app.set("trust proxy", 1);
-app.enable("trust proxy");
+//app.set("trust proxy", 1);
+//app.enable("trust proxy");
 
 app.use("/api", router);
 

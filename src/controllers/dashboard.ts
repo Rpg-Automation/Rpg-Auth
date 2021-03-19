@@ -56,7 +56,6 @@ router.post("/logout",
 				signed: true,
 				path: "/"
 			});
-			//res.clearCookie("token");
 			return res.status(200).json({
 				ok: true,
 				status: 200,
