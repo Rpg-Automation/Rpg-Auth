@@ -39,9 +39,9 @@ router.get("/discord/dash/callback", _pass,
 			res.cookie("token3", token, {
 				maxAge: 604800000, // 7 days
 				httpOnly: true,
-				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
+				secure: true,
 				//sameSite: config.IS_PROD ? "none" : true,
-				sameSite: "strict",
+				sameSite: "lax",
 				signed: true,
 				path: "/"
 			});
