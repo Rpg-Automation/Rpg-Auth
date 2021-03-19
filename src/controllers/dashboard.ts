@@ -20,60 +20,9 @@ router.get("/discord/dash/callback", _pass,
 			res.cookie("token", token, {
 				maxAge: 604800000, // 7 days
 				httpOnly: true,
-				//secure: config.IS_PROD,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				//sameSite: false,
 				sameSite: "none",
 				signed: true,
-				//domain: "herokuapp.com",
-				path: "/"
-			});
-
-			res.cookie("test_sec", token, {
-				maxAge: 604800000, // 7 days
-				httpOnly: true,
-				//secure: true,
-				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				//sameSite: false,
-				sameSite: "none",
-				signed: true,
-				//domain: "herokuapp.com",
-				path: "/"
-			});
-
-			res.cookie("test_not_sec", token, {
-				maxAge: 604800000, // 7 days
-				httpOnly: true,
-				//secure: false,
-				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				//sameSite: false,
-				sameSite: "none",
-				signed: true,
-				//domain: "herokuapp.com",
-				path: "/"
-			});
-
-			res.cookie("test_not_sec2", token, {
-				maxAge: 604800000, // 7 days
-				httpOnly: false,
-				//secure: false,
-				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				//sameSite: false,
-				sameSite: "none",
-				signed: true,
-				//domain: "herokuapp.com",
-				path: "/"
-			});
-
-			res.cookie("test_sec2", token, {
-				maxAge: 604800000, // 7 days
-				httpOnly: true,
-				//secure: true,
-				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				//sameSite: false,
-				sameSite: "none",
-				signed: true,
-				//domain: "herokuapp.com",
 				path: "/"
 			});
 
