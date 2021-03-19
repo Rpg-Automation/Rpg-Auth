@@ -49,14 +49,14 @@ router.post("/logout",
 	async (req: Request, res: Response, next: NextFunction): Promise<Response> => {
 		try {
 			res.cookie("token", "", {
-				maxAge: 0, // 7 days
+				maxAge: 0, // delete instantly
 				httpOnly: true,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
 				sameSite: "none",
 				signed: true,
 				path: "/"
 			});
-			res.clearCookie("token");
+			//res.clearCookie("token");
 			return res.status(200).json({
 				ok: true,
 				status: 200,
