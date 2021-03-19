@@ -48,6 +48,14 @@ router.post("/verify", jwtMiddleware,
 router.post("/logout",
 	async (req: Request, res: Response, next: NextFunction): Promise<Response> => {
 		try {
+			res.cookie("token", "", {
+				maxAge: 0, // 7 days
+				httpOnly: true,
+				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
+				sameSite: "none",
+				signed: true,
+				path: "/"
+			});
 			res.clearCookie("token");
 			return res.status(200).json({
 				ok: true,
