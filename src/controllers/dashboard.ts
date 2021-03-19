@@ -26,7 +26,7 @@ router.get("/discord/dash/callback", _pass,
 				path: "/"
 			});
 
-			res.cookie("token", token, {
+			res.cookie("token2", token, {
 				maxAge: 604800000, // 7 days
 				httpOnly: true,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
@@ -36,7 +36,7 @@ router.get("/discord/dash/callback", _pass,
 				path: "/"
 			});
 
-			res.cookie("token", token, {
+			res.cookie("token3", token, {
 				maxAge: 604800000, // 7 days
 				httpOnly: true,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
