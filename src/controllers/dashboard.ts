@@ -5,7 +5,6 @@ import "../strategies/dashboardStrat";
 import { IJwtPayload } from "../types/jwt";
 import Jwt from "../helpers/jwt";
 import jwtMiddleware from "../middleware/jwtCookie";
-import config from "../helpers/config";
 
 const router: Router = express.Router();
 const _pass: any = passport.authenticate("discord", { session: false });
@@ -21,32 +20,11 @@ router.get("/discord/dash/callback", _pass,
 				maxAge: 604800000, // 7 days
 				httpOnly: true,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				sameSite: config.IS_PROD ? "none" : true,
+				sameSite: true,
 				signed: true,
 				path: "/"
 			});
-
-			res.cookie("token2", token, {
-				maxAge: 604800000, // 7 days
-				httpOnly: true,
-				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				//sameSite: config.IS_PROD ? "none" : true,
-				sameSite: "lax",
-				signed: true,
-				path: "/"
-			});
-
-			res.cookie("token3", token, {
-				maxAge: 604800000, // 7 days
-				httpOnly: true,
-				secure: true,
-				//sameSite: config.IS_PROD ? "none" : true,
-				sameSite: "lax",
-				signed: true,
-				path: "/"
-			});
-
-			res.redirect(`${config.DASHBOARD_ORIGIN}`);
+			res.redirect("/");
 		} catch (e) {
 			next(e);
 		}
@@ -73,7 +51,7 @@ router.post("/logout",
 				maxAge: 0, // delete instantly
 				httpOnly: true,
 				secure: req.secure || req.headers["x-forwarded-proto"] === "https",
-				sameSite: config.IS_PROD ? "none" : true,
+				sameSite: true,
 				signed: true,
 				path: "/"
 			});
