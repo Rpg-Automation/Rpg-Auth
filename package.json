@@ -7,9 +7,9 @@
     "lint": "eslint --fix --ext .ts,.tsx .",
     "devbuild": "npm run lint && npm run postinstall",
     "postinstall": "npm run build",
-    "build": "tsc",
-	"clientBuild": "cd client && npm i && npm run build",
-    "prestart": "npm run build && npm run clientBuild",
+    "build": "tsc && npm run clientBuild",
+    "clientBuild": "cd client && npm i && npm run build",
+    "prestart": "npm run build",
     "watch": "tsc --watch",
     "start": "node ./build/index.js"
   },
