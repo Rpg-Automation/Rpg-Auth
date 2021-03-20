@@ -1,4 +1,6 @@
-import express, { Request, Response, Express } from "express";
+import path from "path";
+import { cwd } from "process";
+import express, { Express } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
@@ -16,20 +18,27 @@ app.use(cors({
 	preflightContinue: false,
 	exposedHeaders: ["Authorization", "set-cookie", "Set-Cookie"]
 }));
-app.use(helmet());
+app.use(helmet({
+	contentSecurityPolicy: false
+}));
 app.use(cookieParser(config.COOKIE_SECRET));
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(express.static(path.join(cwd(), "/client/build")));
 
 app.use("/api", router);
 
-app.use("*", async (req: Request, res: Response): Promise<Response> => {
-	return res.status(404).send({
-		ok: false,
-		status: 404,
-		data: "not found"
-	});
+app.get("*", (req, res) => {
+	res.sendFile(path.join(cwd() + "/client/build/index.html"));
 });
+//app.use("*", async (req: Request, res: Response): Promise<Response> => {
+//	return res.status(404).send({
+//		ok: false,
+//		status: 404,
+//		data: "not found"
+//	});
+//});
+
 app.use(errorHandler);
 
 export default app;
