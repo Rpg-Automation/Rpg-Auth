@@ -31,13 +31,6 @@ app.use("/api", router);
 app.get("*", (req, res) => {
 	res.sendFile(path.join(cwd() + "/client/build/index.html"));
 });
-//app.use("*", async (req: Request, res: Response): Promise<Response> => {
-//	return res.status(404).send({
-//		ok: false,
-//		status: 404,
-//		data: "not found"
-//	});
-//});
 
 app.use(errorHandler);
 

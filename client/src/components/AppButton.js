@@ -21,7 +21,6 @@ function AppButton({onClick, text="click me", color, type, disabled=false}) {
 const styles = {
 	container: {
 		margin: "auto",
-		color: "salmon",
 		textAlign: "center",
 		marginTop: "30px",
 		marginBottom: "20px"
