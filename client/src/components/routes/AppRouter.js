@@ -20,7 +20,7 @@ function App() {
 	
 	const validate = async () => {
 		try {
-			const { headers, data } = await client().post("auth/verify");
+			const { headers, data } = await client().post("dashboard/verify");
 			const response = data.data;
 
 			store.dispatch(updateUser(response));

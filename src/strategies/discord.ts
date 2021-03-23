@@ -15,7 +15,6 @@ passport.use(
 	new DiscordStrategy({
 		clientID: config.CLIENT_ID,
 		clientSecret: config.CLIENT_SECRET,
-		callbackURL: config.CALLBACK_URL,
 		scope: ["identify"]
 	}, async (accessToken, refreshToken, profile, done): Promise<void> => {
 		const { id, username, discriminator, avatar }: DiscordStrategy.Profile = profile;
@@ -24,4 +23,22 @@ passport.use(
 	})
 );
 
-export default passport;
+const _clientOptions: any =
+{
+	callbackURL: config.CLIENT_CALLBACK_URL,
+	session: false,
+};
+
+const _dashboardOptions: any =
+{
+	callbackURL: config.DASHBOARD_CALLBACK_URL,
+	session: false,
+};
+
+const ClientAuth: any = passport.authenticate("discord", _clientOptions);
+const DashboardAuth: any = passport.authenticate("discord", _dashboardOptions);
+
+export {
+	ClientAuth,
+	DashboardAuth
+};
