@@ -7,10 +7,14 @@ import store from "../store/Store";
 import constants from "../config/constants";
 
 function HomePage() {
-	const socket = connect(constants.websocketUri);
 	const state = store.getState();
-
 	console.log(state);
+
+	const socket = connect(constants.websocketUri, { query: `client_token=${state.jwt[0].token}`});
+
+	socket.on("connect", () => {
+		socket.emit("request-status", state.jwt[0].token);
+	});
 
 	socket.on("response", (data) => {
 		console.log(data);
