@@ -34,22 +34,39 @@ function ProfileControls({ socket }) {
 	};
 
 	const start = () => {
-		socket.emit("request-start", state.user[0].id);
+		socket.emit("dashboard-start", state.jwt[0].token);
 		setAlertOpts({
-			text: "automation started",
+			text: "start requested",
 			severity: "success",
 			open: true
 		});
 	};
 
 	const stop = () => {
-		socket.emit("request-stop", state.user[0].id);
+		socket.emit("dashboard-stop", state.jwt[0].token);
 		setAlertOpts({
-			text: "automation stopped",
+			text: "stop requested",
 			severity: "warning",
 			open: true
 		});
 	};
+
+	socket.on("update-status", (status) => {
+		if(status){
+			setAlertOpts({
+				text: "automation running",
+				severity: "warning",
+				open: true
+			});
+			return;
+		}
+
+		setAlertOpts({
+			text: "automation stopped",
+			severity: "success",
+			open: true
+		});
+	});
 
 	return (
 		<div>
